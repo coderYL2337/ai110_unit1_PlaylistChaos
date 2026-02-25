@@ -111,7 +111,7 @@ def build_playlists(songs: List[Song], profile: Dict[str, object]) -> PlaylistMa
 
     return playlists
 
-
+# Changes: wrap a.get(key, []) and b.get(key, []) with list() to create shallow copies. This prevents the function from accidentally mutating the caller's original playlists.
 def merge_playlists(a: PlaylistMap, b: PlaylistMap) -> PlaylistMap:
     """Merge two playlist maps into a new map without mutating inputs."""
     merged: PlaylistMap = {}
